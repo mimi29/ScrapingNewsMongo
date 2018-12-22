@@ -23,8 +23,15 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsDB";
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+var databaseUri = "mongodb://localhost/newsDB";
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+}
+else {
+  mongoose.connect(databaseUri, { useNewUrlParser: true });
+}
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsDB";
+// mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
