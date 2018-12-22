@@ -79,8 +79,8 @@ $(document).on("click", "#deletenote", function() {
 console.log("note id : "+thisId);
   // Run a GET request to change the note, using what's entered in the inputs
   $.ajax({
-    method: "GET",
-    url: "/articles/" + thisId,
+    method: "POST",
+    url: "/articles/delete/" + thisId,
     data: {
       // Value taken from title input
       title: $("#titleinput").val(),
