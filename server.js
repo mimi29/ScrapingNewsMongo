@@ -8,7 +8,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
+
 
 // Initialize Express
 var app = express();
@@ -24,7 +24,7 @@ app.use(express.static("public"));
 
 // Connect to the Mongo DB
 var databaseUri = "mongodb://localhost/newsDB";
-if (process.env.MONGODB_URI) {
+if (process.env.MONGODB_URI) { 
   mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 }
 else {
@@ -32,7 +32,7 @@ else {
 }
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsDB";
 // mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
-
+//db = mongoose.connection;
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with axios
@@ -120,7 +120,8 @@ app.post("/articles/:id", function(req, res) {
     });
 });
 
+var PORT = 5000;
 // Start the server
-app.listen(PORT, function() {
+app.listen(process.env.PORT || PORT, function() {
   console.log("App running on port " + PORT + "!");
 });
