@@ -1,13 +1,13 @@
 body {
-    background-color: lightgray;
+    background-color:  #FCF5C7;
     font-family: "Times New Roman", Times, serif;
     font-size: larger;
   }
   #wrapper {
-    width: 960px;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 5%;
+    padding-top: 10px;
   }
   #articles {
     display: inline-block;
@@ -34,13 +34,17 @@ body {
   }
 
   #navi {
-    background-color: #ffffff;
     height: 165px;
     width: 100%;
-    background-image: url("../../images/banner.jpg");
+    background-image: url("../../images/banner.png");
     display: inline-block;
     text-align: center;
     margin: 0 auto 0 auto;
+}
+
+.label {
+  color: darkgoldenrod;
+  text-align: center;
 }
 
 .topnav {
